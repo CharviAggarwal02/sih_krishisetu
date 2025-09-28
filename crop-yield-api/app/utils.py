@@ -1,5 +1,4 @@
-import numpy as np
-import pandas as pd
+import random
 import os
 
 def calculate_yield_simple(form_data):
@@ -74,7 +73,7 @@ def calculate_yield_simple(form_data):
                       ph_factor * carbon_factor * water_factor * freq_factor * farm_size)
     
     # Add some realistic variation (±15%)
-    variation = np.random.uniform(0.85, 1.15)
+    variation = random.uniform(0.85, 1.15)
     predicted_yield *= variation
     
     # Ensure minimum yield
