@@ -3,8 +3,9 @@ services:
     name: krishisetu-backend
     env: python
     plan: free
-    buildCommand: pip install -r crop-yield-api/requirements.txt
-    startCommand: cd crop-yield-api && gunicorn --bind 0.0.0.0:$PORT run:app
+    rootDir: crop-yield-api
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT run:app
     envVars:
       - key: FLASK_ENV
         value: production
