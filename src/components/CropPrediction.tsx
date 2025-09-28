@@ -49,7 +49,7 @@ export default function CropPrediction({ user, onLogout, onNavigate }: CropPredi
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   try {
-    const response = await fetch('http://127.0.0.1:5000/predict', {
+    const response = await fetch('https://sih-krishisetu.onrender.com/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
