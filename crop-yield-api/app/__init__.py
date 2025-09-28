@@ -19,7 +19,7 @@ except Exception:
         from utils import calculate_yield_prediction, validate_input_data  # type: ignore
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=["*"])  # Enable CORS for all routes and origins
 
 @app.route('/')
 def index():
@@ -27,8 +27,16 @@ def index():
         'status': 'ok',
         'message': 'Krishi crop-yield API running with ML prediction',
         'endpoints': {
-            'POST /predict': 'Submit form data to get ML-based predicted_yield'
+            'POST /predict': 'Submit form data to get ML-based predicted_yield',
+            'GET /health': 'Health check endpoint'
         }
+    })
+
+@app.route('/health')
+def health():
+    return jsonify({
+        'status': 'healthy',
+        'message': 'API is running successfully'
     })
 
 @app.route('/predict', methods=['POST'])
