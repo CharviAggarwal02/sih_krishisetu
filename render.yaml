@@ -10,3 +10,13 @@ services:
         value: production
       - key: PYTHON_VERSION
         value: 3.9
+
+  - type: web
+    name: krishisetu-frontend
+    env: docker
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: NODE_VERSION
+        value: 20
